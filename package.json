@@ -1,0 +1,22 @@
+{
+  "name": "rio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-load": "^1.1.15",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.6",
+    "mongoose-deep-populate": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Jardel Queiroz",
+  "license": "ISC"
+}

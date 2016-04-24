@@ -1,0 +1,69 @@
+<div class="container-fluid" ng-include="'./partials/menu.html'"> </div>
+
+<div class="alert alert-danger" role="alert" ng-show="mensagem.texto" >
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{mensagem.texto}} 
+</div>
+
+<form ng-submit="procurar()" class="form-inline">
+	<select id="tabela" 
+			class="form-control"
+			ng-model="filtro.tabela"
+			ng-options="usuarioTabela.tabela._id as usuarioTabela.tabela.nome group by usuarioTabela.tabela.empresa.nome for usuarioTabela in usuarioTabelas" 
+			required>
+				<option></option>
+	</select>
+	<input class="form-control" ng-model="filtro.codigo" type="search" placeholder="Código">
+	<input class="form-control" ng-model="filtro.nome" type="search" placeholder="Nome">
+	<button type="submit" class="btn btn-primary form-control">
+		Procurar Procedimento
+	</button>
+
+</form>
+
+<p ng-show="dados.length" >
+	Registros pesquisados: {{dados.length}}
+</p>
+
+<p class="text-info" ng-hide="dados.length">
+	Não há registros pesquisados
+</p>
+
+<div class="table-responsive">
+	<table class="table table-hover ">
+		<tr>
+			<th>Empresa</th>
+			<th>TABELA</th>
+			<th>ITEM</th>
+			<th>CÓDIGO</th>
+			<th></th>
+			<th>NOME</th>
+			<th>VALOR</th>
+		</tr>
+		
+		<TR ng-repeat="dado in dados">
+			<td> {{dado.tabela.empresa.nome}} </td>
+			<td> {{dado.tabela.nome}} </td>
+			<td> {{dado.item.codigo}} </td>
+			<td> {{dado.codigo}} </td>
+			<td>
+				<a ng-show="dado.temFavorito" ng-click="remove(dado)">
+					<span class="glyphicon glyphicon-star" style="color:orange"   > </span>
+				</a>
+				<a ng-hide="dado.temFavorito" ng-click="favorito(dado)">
+
+					<span class="glyphicon glyphicon-star-empty" style="color:orange"   > </span>
+				</a>
+			</td>
+			<td>
+				<a ng-href="#/itemtabela/{{dado._id}}">
+					{{dado.nome}}
+				</a>
+			</td>
+			<td> {{dado.valor}} </td>
+			
+		</TR>
+	</table>
+
+</div>

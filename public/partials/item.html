@@ -1,0 +1,48 @@
+<div class="container-fluid" ng-include="'./partials/menu.html'"> </div>
+
+<h1 class="text-center">
+	Ítem
+</h1>
+
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+
+<form ng-submit="salva()">
+	<div class="form-group">
+		<label for="area">
+			Área
+		</label>
+		<select id="area" 
+			class="form-control" 
+			ng-model="dado.area"
+			ng-options="area._id as area.nome for area in areas" 
+			required>
+				<option></option>
+		</select>
+	</div>		
+
+	<div class="form-group">
+		<label for="codigo">
+			Código:
+		</label>
+		<input type="text" class="form-control" id="codigo" name="codigo" required ng-model="dado.codigo">
+	</div>
+
+	<div class="form-group">
+		<label for="nome">
+			Nome:
+		</label>
+		<input type="text" class="form-control" id="nome" name="nome" required ng-model="dado.nome">
+	</div>
+	
+	<div>
+		<button type="submit" class="btn btn-primary">
+			Salvar
+		</button>
+		<a href="#/itens" class="btn btn-primary">
+			Voltar
+		</a>
+	</div>
+
+</form>

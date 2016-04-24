@@ -1,0 +1,48 @@
+<div class="container-fluid" ng-include="'./partials/menu.html'"> </div>
+
+<h1 class="text-center">
+	Usuário associado à tabela
+</h1>
+
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+
+<form ng-submit="salva()">
+
+	<div class="form-group">
+		<label for="usuario">
+			Usuário
+		</label>
+		<select id="usuario" 
+			class="form-control" 
+			ng-model="dado.usuario"
+			ng-options="usuario._id as usuario.nome for usuario in usuarios" 
+			required>
+				<option></option>
+		</select>
+	</div>		
+
+	<div class="form-group">
+		<label for="tabela">
+			Tabela
+		</label>
+		<select id="tabela" 
+			class="form-control" 
+			ng-model="dado.tabela"
+			ng-options="tabela._id as tabela.nome group by tabela.empresa.nome for tabela in tabelas" 
+			required>
+				<option></option>
+		</select>
+	</div>
+	
+	<div>
+		<button type="submit" class="btn btn-primary">
+			Salvar
+		</button>
+		<a href="#/usuariostabela" class="btn btn-primary">
+			Voltar
+		</a>
+	</div>
+
+</form>

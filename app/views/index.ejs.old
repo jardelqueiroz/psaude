@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Seja bem-vindo</title>
+	</head>
+
+	<body>
+		<h1><%=nome%>, bem-vindo ao teste</h1>
+	</body>
+	
+</html>

@@ -1,0 +1,28 @@
+<div class="container-fluid" ng-include="'./partials/menu.html'"> </div>
+
+<h1 class="text-center">
+	Área
+</h1>
+
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+
+<form ng-submit="salva()">
+	<div class="form-group">
+		<label for="nome">
+			Nome:
+		</label>
+		<input type="text" class="form-control" id="nome" name="nome" required ng-model="dado.nome">
+	</div>
+	
+	<div>
+		<button type="submit" class="btn btn-primary">
+			Salvar
+		</button>
+		<a href="#/areas" class="btn btn-primary">
+			Voltar
+		</a>
+	</div>
+
+</form>

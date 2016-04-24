@@ -1,0 +1,12 @@
+- incluir pesquisa por CID
+- Ordenar por valor
+- cadastro de correlacao
+- alterar a pagina de busca para incluir correlacao
+- no arquivo express.js retirar o * de res.header("Access-Control-Allow-Origin", "*")
+
+
+Aplicativo movel
+- pesquisar procedimento por tabela, codigo, cid, nome incluindo correlacao
+- favoritos
+- comprar novas tabelas
+- logar via apple

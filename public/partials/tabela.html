@@ -1,0 +1,41 @@
+<div class="container-fluid" ng-include="'./partials/menu.html'"> </div>
+
+<h1 class="text-center">
+	Tabela
+</h1>
+
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+
+<form ng-submit="salva()">
+	<div class="form-group">
+		<label for="empresa">
+			Empresa
+		</label>
+		<select id="empresa" 
+			class="form-control" 
+			ng-model="dado.empresa"
+			ng-options="empresa._id as empresa.nome for empresa in empresas" 
+			required>
+				<option></option>
+		</select>
+	</div>		
+
+	<div class="form-group">
+		<label for="nome">
+			Nome:
+		</label>
+		<input type="text" class="form-control" id="nome" name="nome" required ng-model="dado.nome">
+	</div>
+	
+	<div>
+		<button type="submit" class="btn btn-primary">
+			Salvar
+		</button>
+		<a href="#/tabelas" class="btn btn-primary">
+			Voltar
+		</a>
+	</div>
+
+</form>

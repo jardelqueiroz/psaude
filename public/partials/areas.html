@@ -1,0 +1,44 @@
+<div class="container-fluid" ng-include="'./partials/menu.html'"> </div>
+
+<div class="alert alert-danger" role="alert" ng-show="mensagem.texto" >
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{mensagem.texto}} 
+</div>
+
+<a class="btn btn-primary" ng-href="#/area" >
+	Nova área
+</a>
+
+<input ng-model="filtro" type="search" placeholder="Pesquisar">
+
+<p ng-show="dados.length" >
+	Registros cadastrados: {{dados.length}}
+</p>
+
+<p class="text-info" ng-hide="dados.length">
+	Não há registros cadastrados
+</p>
+
+<div class="table-responsive">
+	<table class="table table-hover ">
+		<tr>
+			<th>NOME</th>
+			<th class="text text-center">AÇÃO</th>
+		</tr>
+		
+		<TR ng-repeat="dado in dados | filter: filtro">
+			<td>
+				<a ng-href="#/area/{{dado._id}}">
+					{{dado.nome}}
+				</a>
+			</td>
+			<td class="text-center">
+				<button class="btn btn-warning " ng-click="remove(dado)">
+					Remover
+				</button>
+			</td>
+		</TR>
+	</table>
+
+</div>
